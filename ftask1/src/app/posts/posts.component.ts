@@ -14,7 +14,7 @@ export class PostComponent implements OnInit{
 
   constructor(private ds: DataService) {
     this.showImage = false;
-    this.ds.getData().subscribe(x => {
+    this.ds.fetch().subscribe(x => {
       this.data = x;
       console.log(this.data)
     })

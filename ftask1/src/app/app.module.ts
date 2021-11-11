@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http'
+import { DataService } from './posts/data.service';
+import { HttpInterceptProvides } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DataService, HttpInterceptProvides],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
