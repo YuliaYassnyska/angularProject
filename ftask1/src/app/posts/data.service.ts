@@ -10,13 +10,12 @@ export interface Post {
 }
 
 @Injectable({ providedIn: 'root' })
-
 export class DataService {
     url: string = 'https://jsonplaceholder.typicode.com/posts';
 
     constructor(private http: HttpClient) {}
 
-    getData(): Observable<Post[]>{
+    fetch(): Observable<Post[]>{
         return this.http.get<Post[]>(this.url);
     }
 }
