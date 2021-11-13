@@ -1,0 +1,7 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="id" placeholder="Card №">
+    <input type="text" formControlName="userId" placeholder="User id">
+    <input type="text" formControlName="title" placeholder="Title">
+    <input type="text" formControlName="body" placeholder="Body">
+    <button type="submit">Add card</button>
+</form>
