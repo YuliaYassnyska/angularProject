@@ -1,0 +1,14 @@
+<div class="posts">
+  <div class="cardid" *ngFor="let d of data">
+    <h3>Card №{{ d.id }}</h3>
+    <p>User id: {{ d.userId }}</p>
+    <p>Title: {{ d.title }}</p>
+    <p>Body: {{ d.body }}</p>
+  </div>
+  <div class="localcards" *ngFor="let p of person">
+    <h3>Card №{{ p.id }}</h3>
+    <p>User id: {{ p.userId }}</p>
+    <p>Title: {{ p.title }}</p>
+    <p>Body: {{ p.body }}</p>
+  </div>
+</div>

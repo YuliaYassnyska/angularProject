@@ -1,0 +1,10 @@
+.cardid,
+.localcards {
+  padding: 0.5rem 1rem;
+  border: 1px dashed #ccc;
+  margin-bottom: 1rem;
+}
+
+#fetchdata {
+  margin-bottom: 15px;
+}
