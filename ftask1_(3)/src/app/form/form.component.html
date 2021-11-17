@@ -1,0 +1,19 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <input type="number" formControlName="id" placeholder="Card №" />
+  <span *ngIf="id.invalid && (id.touched || btnSubmitted)">
+    Your id does not pass validation
+  </span>
+  <input type="number" formControlName="userId" placeholder="User id" />
+  <span *ngIf="userId.invalid && (userId.touched || btnSubmitted)">
+    Your userId does does not pass validation
+  </span>
+  <input type="text" formControlName="title" placeholder="Title" />
+  <span *ngIf="title.invalid && (title.touched || btnSubmitted)">
+    Your title does not pass validation
+  </span>
+  <input type="text" formControlName="body" placeholder="Body" />
+  <span *ngIf="body.invalid && (body.touched || btnSubmitted)">
+    Your body does not pass validation
+  </span>
+  <button type="submit">Add card</button>
+</form>
