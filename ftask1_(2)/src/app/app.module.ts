@@ -10,12 +10,14 @@ import { DataService } from './posts/data.service';
 import { HttpInterceptProvides } from './http-interceptors';
 import { FormComponent } from './form/form.component';
 import { FormUserService } from './form/form.service';
+import { FormFilterPipe } from './posts/form-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    FormComponent
+    FormComponent,
+    FormFilterPipe
   ],
   imports: [
     BrowserModule,

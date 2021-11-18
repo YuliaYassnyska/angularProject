@@ -1,11 +1,20 @@
 <div class="posts">
-  <div class="cardid" *ngFor="let d of data">
+  <div class="filter-search">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by title"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+
+  <div class="cardid" *ngFor="let d of data | usersFilter: searchTerm">
     <h3>Card №{{ d.id }}</h3>
     <p>User id: {{ d.userId }}</p>
     <p>Title: {{ d.title }}</p>
     <p>Body: {{ d.body }}</p>
   </div>
-  <div class="localcards" *ngFor="let p of person">
+  <div class="localcards" *ngFor="let p of person | usersFilter: searchTerm">
     <h3>Card №{{ p.id }}</h3>
     <p>User id: {{ p.userId }}</p>
     <p>Title: {{ p.title }}</p>
