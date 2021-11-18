@@ -5,6 +5,19 @@
   margin-bottom: 1rem;
 }
 
+.filter-search {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  padding: 0.5rem 1rem;
+  border: 1px dashed #ccc;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+}
+
 #fetchdata {
   margin-bottom: 15px;
 }

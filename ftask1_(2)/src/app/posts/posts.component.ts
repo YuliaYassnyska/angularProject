@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService, Post } from './data.service';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -13,11 +14,12 @@ export class PostComponent implements OnInit {
   columnsToDisplay = ['userId', 'id', 'title', 'body']
   myId: any
   person: Post[] = []
+  searchTerm: string;
 
   constructor(private ds: DataService) {
   }
 
-  display2() {
+  displayJSON() {
     const stream2$ = new Observable(obs => {
       setTimeout(() => {
         obs.next(this.ds.fetch().subscribe(x => {
@@ -33,16 +35,16 @@ export class PostComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.display()
-    this.display2()
+    this.displayLocalSrg()
+    this.displayJSON()
   };
 
-  display() {
+  displayLocalSrg() {
     const stream$ = new Observable(obs => {
       setTimeout(() => {
         obs.next(this.myId = localStorage.getItem('Users'));
         obs.next(this.person = JSON.parse(this.myId))
-      }, 7000)
+      }, 4000)
     })
     
     stream$.subscribe({

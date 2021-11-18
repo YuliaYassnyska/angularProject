@@ -9,11 +9,10 @@ import { FormUserService } from './form.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  // static stuticID = 0
-  // myForm!: any;
   myForm: FormGroup;
   user: Post;
   btnSubmitted: boolean;
+  searchTerm: string;
   constructor(private fb: FormBuilder, private FormUserService: FormUserService) {
   }
 
@@ -62,24 +61,3 @@ export class FormComponent implements OnInit {
     }
   }
 }
-
-
-// onSubmit() {
-  //   localStorage.setItem(FormComponent.stuticID.toString(), JSON.stringify(this.myForm.value))
-  //   console.log(localStorage.length);
-  //   FormComponent.stuticID++;
-  // }
-
-  // onSubmit() {
-  //   localStorage.setItem('form-data', JSON.stringify(this.myForm.value))
-  //   let formValue = JSON.parse(localStorage.getItem('form-data') || '{}');
-  //   console.log(localStorage.length);
-  //   // FormComponent.stuticID++;
-// }
-
-// onFetch() {
-  //   for (let i = 0; i <= localStorage.length; i++){
-  //     let x = localStorage.key(i);
-  //     console.log(x)
-  //   }
-  // }
