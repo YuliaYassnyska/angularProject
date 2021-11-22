@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 
 export interface Post {
     userId: number,
@@ -10,12 +11,15 @@ export interface Post {
 }
 
 @Injectable({ providedIn: 'root' })
-export class DataService {
+export class DataService implements Resolve<Post[]> {
     url: string = 'https://jsonplaceholder.typicode.com/posts';
+    public search = new BehaviorSubject<string>("");
+    public subject = new ReplaySubject();
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
-    fetch(): Observable<Post[]>{
+    resolve(route?: ActivatedRouteSnapshot, state?: RouterStateSnapshot): Observable<Post[]> {
         return this.http.get<Post[]>(this.url);
     }
 }
