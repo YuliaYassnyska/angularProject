@@ -9,15 +9,19 @@
   </div>
 
   <div class="cardid" *ngFor="let d of data | usersFilter: searchTerm">
-    <h3>Card №{{ d.id }}</h3>
-    <p>User id: {{ d.userId }}</p>
-    <p>Title: {{ d.title }}</p>
-    <p>Body: {{ d.body }}</p>
+    <div (click)="onClick(d.id)" class="poinerCursor">
+      <h3>Card №{{ d.id }}</h3>
+      <p>User id: {{ d.userId }}</p>
+      <p>Title: {{ d.title }}</p>
+      <p>Body: {{ d.body }}</p>
+    </div>
   </div>
   <div class="localcards" *ngFor="let p of person | usersFilter: searchTerm">
-    <h3>Card №{{ p.id }}</h3>
-    <p>User id: {{ p.userId }}</p>
-    <p>Title: {{ p.title }}</p>
-    <p>Body: {{ p.body }}</p>
+    <div (click)="onClickLocal(p.id)" class="poinerCursor">
+      <h3>Card №{{ p.id }}</h3>
+      <p>User id: {{ p.userId }}</p>
+      <p>Title: {{ p.title }}</p>
+      <p>Body: {{ p.body }}</p>
+    </div>
   </div>
 </div>

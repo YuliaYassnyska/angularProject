@@ -21,3 +21,7 @@
 #fetchdata {
   margin-bottom: 15px;
 }
+
+.poinerCursor {
+  cursor: pointer;
+}

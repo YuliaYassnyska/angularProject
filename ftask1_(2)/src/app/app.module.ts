@@ -11,13 +11,15 @@ import { HttpInterceptProvides } from './http-interceptors';
 import { FormComponent } from './form/form.component';
 import { FormUserService } from './form/form.service';
 import { FormFilterPipe } from './posts/form-filter.pipe';
+import { PostDetailsComponent } from './posts/post-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     FormComponent,
-    FormFilterPipe
+    FormFilterPipe,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { FormFilterPipe } from './posts/form-filter.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService, HttpInterceptProvides, FormUserService],
+  providers: [DataService, HttpInterceptProvides, FormUserService, PostComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
