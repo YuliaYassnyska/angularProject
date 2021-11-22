@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService, Post } from './data.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -9,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./posts.component.css']
 })
 
-export class PostComponent implements OnInit {
+export class PostsComponent implements OnInit {
   data: Post[] = [];
   columnsToDisplay = ['userId', 'id', 'title', 'body']
   myId: any
@@ -17,13 +18,14 @@ export class PostComponent implements OnInit {
   searchKey: string = "";
   searchTerm: string = ''
 
-  constructor(private ds: DataService) {
+  constructor(private ds: DataService,
+    private router: Router) {
   }
 
   display2() {
     const stream2$ = new Observable(obs => {
       setTimeout(() => {
-        obs.next(this.ds.fetch().subscribe(x => {
+        obs.next(this.ds.resolve().subscribe(x => {
       this.data = x;
     }));
       }, 3000)
@@ -64,5 +66,10 @@ export class PostComponent implements OnInit {
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.ds.search.next(this.searchTerm);
+  }
+
+  onClick(id: number) {
+    this.router.navigate(['/post', id])
+    this.ds.subject.next(this.data[id-1])
   }
 }
